@@ -21,8 +21,8 @@ public class ArticleListServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		String url = "jdbc:mysql://localhost:3306/am?serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeBehavior=convertToNull";
-		String user = "root";
-		String password = "";
+		String user = "sbsst";
+		String password = "sbs123414";
 
 		// 커넥터 드라이버 활성화
 		String driverName = "com.mysql.cj.jdbc.Driver";
@@ -46,6 +46,9 @@ public class ArticleListServlet extends HttpServlet {
 			List<Map<String, Object>> articleRows = dbUtil.selectRows(conn, sql);
 
 			response.getWriter().append(articleRows.toString());
+			
+			request.setAttribute("articleRows", articleRows);
+			request.getRequestDispatcher("/jsp/home/list.jsp").forward(request, response);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
