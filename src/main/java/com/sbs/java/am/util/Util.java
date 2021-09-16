@@ -1,4 +1,4 @@
-package com.sbs.java.am;
+package com.sbs.java.am.util;
 
 import java.io.IOException;
 
@@ -71,4 +71,4 @@ public class Util {
 	public static String getString(HttpServletRequest req, String paramName) {
 		return req.getParameter(paramName);
 	}
-} 
+}
