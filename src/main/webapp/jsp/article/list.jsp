@@ -4,6 +4,8 @@
 	pageEncoding="UTF-8"%>
 <%
 List<Map<String, Object>> articleRows = (List<Map<String, Object>>) request.getAttribute("articleRows");
+int cPage = (int) request.getAttribute("page");
+int totalpage = (int) request.getAttribute("totalpage");
 %>
 <!DOCTYPE html>
 <html>
@@ -38,14 +40,29 @@ List<Map<String, Object>> articleRows = (List<Map<String, Object>>) request.getA
 				<td><%=articleRow.get("id")%></td>
 				<td><%=articleRow.get("regDate")%></td>
 				<td><a href="detail?id=<%=articleRow.get("id")%>"><%=articleRow.get("title")%></a></td>
-				<td>
-					<a href="doDelete?id=<%=articleRow.get("id")%>">삭제하기</a>
-				</td>
+				<td><a href="doDelete?id=<%=articleRow.get("id")%>">삭제하기</a></td>
 			</tr>
 		</tbody>
 		<%
 		}
 		%>
 	</table>
+	<style type="text/css">
+.page > a.red {
+	color: red;
+}
+</style>
+
+	<div class="page">
+		<%
+		for (int i = 1; i <= totalpage; i++) {
+		%>
+		<a class="<%=cPage == i ? "red" : ""%>" href="list?page=<%=i%>"><%=i%></a>
+
+		<%
+		}
+		%>
+	</div>
+
 </body>
 </html>
