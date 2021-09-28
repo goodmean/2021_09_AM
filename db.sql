@@ -37,6 +37,11 @@ SET regDate = NOW(),
 title = CONCAT('제목__',RAND()),
 `body` = CONCAT('내용__',RAND());
 
+#글 갯수 2배
+INSERT INTO article (regDate,title,`body`)
+SELECT NOW(), CONCAT('제목_',RAND()), CONCAT('내용_',RAND())
+FROM article;
+
 SELECT * FROM article;
 
 SELECT * FROM article ORDER BY id DESC LIMIT 0, 20
@@ -45,5 +50,11 @@ SELECT COUNT(*) FROM article;
 
 DELETE FROM article
 WHERE id > 200;
+
+DELETE FROM article
+WHERE id = 434 OR id = 433;
+#위와 동일
+DELETE FROM article
+WHERE id IN (434, 433);
 
  # articleRows.get(1).get("body")
