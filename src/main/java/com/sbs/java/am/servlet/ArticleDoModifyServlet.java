@@ -24,8 +24,8 @@ public class ArticleDoModifyServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		String url = "jdbc:mysql://localhost:3306/am?serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeBehavior=convertToNull";
-		String user = "sbsst";
-		String password = "sbs123414";
+		String user = "root";
+		String password = "";
 
 		// 커넥터 드라이버 활성화
 		String driverName = "com.mysql.cj.jdbc.Driver";
