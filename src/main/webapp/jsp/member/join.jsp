@@ -59,22 +59,20 @@
 		onsubmit="JoinForm__submit(this); return false;">
 
 		<div>
-			로그인 아이디 : <input autocomplete="off" placeholder="로그인 아이디를 입력해주세요."
-				name="loginId" type="text" />
+			로그인 아이디 : <input placeholder="로그인 아이디를 입력해주세요." name="loginId"
+				type="text" />
 		</div>
 		<div>
-			로그인 비밀번호 : <input autocomplete="off" placeholder="로그인 비밀번호를 입력해주세요."
-				name="loginPw" type="password" />
-		</div>
-		<div>
-			로그인 비밀번호 확인 : <input autocomplete="off"
-				placeholder="로그인 비밀번호 확인을 입력해주세요." name="loginPwConfirm"
+			로그인 비밀번호 : <input placeholder="로그인 비밀번호를 입력해주세요." name="loginPw"
 				type="password" />
 		</div>
+		<div>
+			로그인 비밀번호 확인 : <input placeholder="로그인 비밀번호 확인을 입력해주세요."
+				name="loginPwConfirm" type="password" />
+		</div>
 		</div>
 		<div>
-			이름 : <input autocomplete="off" placeholder="이름을 입력해주세요." name="name"
-				type="text" />
+			이름 : <input placeholder="이름을 입력해주세요." name="name" type="text" />
 		</div>
 		<div>
 			<!-- <input type="submit" value="작성" /> -->
@@ -85,4 +83,4 @@
 		</div>
 	</form>
 </body>
-</html> 
+</html>
