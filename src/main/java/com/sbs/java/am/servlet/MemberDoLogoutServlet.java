@@ -1,6 +1,10 @@
 package com.sbs.java.am.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,26 +13,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/home/main")
-public class HomeMainServlet extends HttpServlet {
+import com.sbs.java.am.Config;
+import com.sbs.java.am.exception.SQLErrorException;
+import com.sbs.java.am.util.DBUtil;
+import com.sbs.java.am.util.SecSql;
+
+@WebServlet("/member/doLogout")
+public class MemberDoLogoutServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 
 		HttpSession session = request.getSession();
+		session.removeAttribute("loginedMemberId");
 
-		boolean islogined = false;
-		int loginedMemberId = -1;
-
-		if (session.getAttribute("loginedMemberId") != null) {
-			loginedMemberId = (int) session.getAttribute("loginedMemberId");
-			islogined = true;
-		}
-		
-		request.setAttribute("isLogined", islogined);
-		request.setAttribute("loginedMemberId", loginedMemberId);
-
-		request.getRequestDispatcher("/jsp/home/main.jsp").forward(request, response);
+		response.getWriter().append(
+				String.format("<script> alert('로그아웃 성공!'); location.replace('../home/main'); </script>"));
+		return;
 	}
 
 	@Override
@@ -36,5 +40,4 @@ public class HomeMainServlet extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
-}
+} 
