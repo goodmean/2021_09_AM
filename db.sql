@@ -50,8 +50,30 @@ title = CONCAT('제목__',RAND()),
 INSERT INTO `member` 
 SET regDate = NOW(),
 loginId = 'test1',
-loginPw = SHA2('test1',256),
+loginPw = 'test1',
 `name` = '홍길동';
+
+INSERT INTO `member` 
+SET regDate = NOW(),
+loginId = 'test2',
+loginPw = 'test2',
+`name` = '홍길순';
+
+INSERT INTO `member` 
+SET regDate = NOW(),
+loginId = 'admin',
+loginPw = 'admin',
+`name` = '관리자';
+
+#게시물 테이블에 memberId 칼럼 추가
+ALTER TABLE `article` ADD COLUMN memberId INT(10) UNSIGNED NOT NULL AFTER regDate;
+
+DESC article;
+
+#기존의 글은 2번 회원이 작성
+UPDATE article
+SET memberId = 2
+WHERE memberId = 0;
 
 SELECT SHA2('test1',256)
 
@@ -80,9 +102,6 @@ WHERE id IN (434, 433);
  # articleRows.get(1).get("body")
  
  
-				SELECT COUNT(*) > 0
-				FROM `member`
-				WHERE loginId = 'ffff';
-				
-				
-
+SELECT COUNT(*) > 0
+FROM `member`
+WHERE loginId = 'ffff';
