@@ -1,9 +1,12 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
 boolean isLogined = (boolean) request.getAttribute("isLogined");
 int loginedMemberId = (int) request.getAttribute("loginedMemberId");
+Map<String, Object> loginedMemberRow = (Map<String, Object>) request.getAttribute("loginedMemberRow");
 %>
 <!DOCTYPE html>
 <html>
@@ -18,8 +21,8 @@ int loginedMemberId = (int) request.getAttribute("loginedMemberId");
 	if (isLogined) {
 	%>
 	<div>
-	<%=loginedMemberId %> 번 회원님 환영합니다.
-		<a href="../member/doLogout">로그아웃</a>
+		<%=loginedMemberRow.get("name")%>님 환영합니다. <a
+			href="../member/doLogout">로그아웃</a>
 	</div>
 	<%
 	}
