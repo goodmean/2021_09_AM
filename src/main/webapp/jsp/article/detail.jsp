@@ -15,6 +15,8 @@ Map<String, Object> articleRow = (Map<String, Object>) request.getAttribute("art
 <body>
 
 	<h1>게시물 상세 페이지</h1>
+	
+	<%@ include file="../part/topBar.jspf" %>
 
 	<div>
 		번호 :

@@ -62,6 +62,8 @@ public class HomeMainServlet extends HttpServlet {
 			request.setAttribute("isLogined", isLogined);
 			request.setAttribute("loginedMemberId", loginedMemberId);
 			request.setAttribute("loginedMemberRow", loginedMemberRow);
+			
+			request.getRequestDispatcher("/jsp/home/main.jsp").forward(request, response);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
