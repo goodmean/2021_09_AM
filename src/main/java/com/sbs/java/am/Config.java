@@ -5,10 +5,10 @@ public class Config {
 		return "jdbc:mysql://localhost:3306/am?serverTimezone=Asia/Seoul&useOldAliasMetadataBehavior=true&zeroDateTimeBehavior=convertToNull";
 	}
 	public static String getDBId() {
-		return "sbsst";
+		return "root";
 	}
 	public static String getDBPw() {
-		return "sbs123414";
+		return "";
 	}
 	
 	public static String getDBDriverClassName() {
