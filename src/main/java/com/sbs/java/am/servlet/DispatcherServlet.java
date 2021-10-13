@@ -45,7 +45,7 @@ public class DispatcherServlet extends HttpServlet {
 		try {
 			con = DriverManager.getConnection(Config.getDBUrl(), Config.getDBId(), Config.getDBPw());
 
-			//모든 요청에 들어가기 전에 무조건 해줘야 하는 일
+			// 모든 요청에 들어가기 전에 무조건 해줘야 하는 일
 			HttpSession session = request.getSession();
 
 			boolean isLogined = false;
@@ -64,7 +64,7 @@ public class DispatcherServlet extends HttpServlet {
 			request.setAttribute("isLogined", isLogined);
 			request.setAttribute("loginedMemberId", loginedMemberId);
 			request.setAttribute("loginedMemberRow", loginedMemberRow);
-			//모든 요청에 들어가기 전에 무조건 해줘야 하는 일
+			// 모든 요청에 들어가기 전에 무조건 해줘야 하는 일
 
 			String requestUri = request.getRequestURI();
 			String[] requestUriBits = requestUri.split("/");
@@ -83,7 +83,16 @@ public class DispatcherServlet extends HttpServlet {
 				if (actionMethodName.equals("list")) {
 					controller.actionList();
 				}
-			}
+//				else if(actionMethodName.equals("detail"))
+//					controller.showDetail();	// 성공했다면 해당 서블릿 지워보기
+			} 
+//			else if (controllerName.equals("member")) {
+//				MemberController contoller = new MemberController(request, response, con);
+//				
+//				if(actionMethodName.equals("join")) {
+//					contoller.actionJoin();
+//				}
+//			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,4 +114,4 @@ public class DispatcherServlet extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-} 
+}
