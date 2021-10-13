@@ -65,7 +65,7 @@ int totalpage = (int) request.getAttribute("totalpage");
 		<%
 		if (cPage > 1) {
 		%>
-		<a href="list?page=1">◀</a>
+		<a href="/AM/s/article/list?page=1">◀</a>
 		<%
 		}
 		%>
@@ -82,7 +82,7 @@ int totalpage = (int) request.getAttribute("totalpage");
 		}
 		for (int i = from; i <= end; i++) {
 		%>
-		<a class="<%=cPage == i ? "red" : ""%>" href="list?page=<%=i%>"><%=i%></a>
+		<a class="<%=cPage == i ? "red" : ""%>" href="/AM/s/article/list?page=<%=i%>"><%=i%></a>
 
 		<%
 		}
@@ -91,7 +91,7 @@ int totalpage = (int) request.getAttribute("totalpage");
 		<%
 		if (cPage < totalpage) {
 		%>
-		<a href="list?page=<%=totalpage%>">▶</a>
+		<a href="/AM/s/article/list?page=<%=totalpage%>">▶</a>
 		<%
 		}
 		%>
